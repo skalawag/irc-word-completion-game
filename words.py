@@ -12,8 +12,8 @@ import random
 
 pattern = re.compile('[abcdefghijklmnopqrstuvwxyz]')
 
-# dictionary = open('/usr/share/dict/american-english-insane').readlines()
-dictionary = open('/usr/share/dict/american-english').readlines()
+dictionary = open('/usr/share/dict/american-english-insane').readlines()
+#dictionary = open('/usr/share/dict/american-english').readlines()
 dictionary = [x.strip() for x in dictionary if x[0] not in list('ABCDEFGHIJKLMNOPQRSTUVWXYZ')]
 
 players = [] # at least two players.
