@@ -20,7 +20,7 @@ players = [] # at least two players.
 word = random.choice(list('abcdefghijklmnopqrstuvwxyz'))
 challenge_time = None
 game_on = 0
-#score = {} # nick:score
+score = {} # nick:score
 
 def display_rules(phenny, input):
     phenny.say('Go away!')
@@ -73,7 +73,7 @@ def next_letter(phenny, input):
         else:
             advance_turn(phenny,input)
     else:
-        phenny.say("%s, that is not a legal letter. Recall your abc's and select a letter from the alphabet, in lower case, please!")
+        phenny.say("%s, that is not a legal letter. Recall your abc's and select a letter from the alphabet, in lower case, please!" % input.nick)
 next_letter.commands = ['try']
 
 def cleanup():
@@ -81,25 +81,25 @@ def cleanup():
     global players
     global game_on
     global score
-    # try:
-    #     if players[1] in score.keys():
-    #         score[player[1]] += 1
-    #     else:
-    #         score.setdefault(player[1],1)
-    # except:
-    #     pass
+    try:
+        if players[1] in score.keys():
+            score[player[1]] += 1
+        else:
+            score.setdefault(player[1],1)
+    except:
+        pass
     game_on = 0
     word = random.choice(list('abcdefghijklmnopqrstuvwxyz'))
     players = []
 
-# def show_score(phenny,input):
-#     global score
-#     try:
-#         for player in score.keys():
-#             phenny.say("%s has won %d games" % (player, score[player]))
-#     except:
-#         pass
-# show_score.commands = ['word-rank', 'wrank']
+def show_score(phenny,input):
+    global score
+    try:
+        for player in score.keys():
+            phenny.say("%s has won %d games" % (player, score[player]))
+    except:
+        pass
+show_score.commands = ['word-rank', 'wrank']
 
 def check_candidate(wd):
     pattern = re.compile(wd)
