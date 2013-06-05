@@ -1,0 +1,9 @@
+* Description
+words.py is a Phenny module that playing "Don't complete the word"
+game over IRC.
+* Rules
+- Once a second player joins, Phenny initiates the game and chooses a
+  letter from the alphabet at random.
+- Each player in turn extends the word by one letter. The acting
+  player loses if the letter added results in a word, or the letter
+  added results in a string that cannot be extended to make a word.
