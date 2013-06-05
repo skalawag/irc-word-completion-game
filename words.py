@@ -8,7 +8,6 @@ Licensed under the Eiffel Forum License 2.
 http://inamidst.com/phenny/
 """
 import re
-import time
 import random
 
 pattern = re.compile('[abcdefghijklmnopqrstuvwxyz]')
